@@ -1,0 +1,40 @@
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateRooms (20150510175923)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateRooms < ActiveRecord::Migration[4.2] (called from require at /Users/micromegas/Desktop/code/Rails/AddingColumn/bin/rails:8)
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "beds" integer, "guests" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150510175923"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddImageUrlToRooms (20150510183516)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class AddImageUrlToRooms < ActiveRecord::Migration[4.2] (called from require at /Users/micromegas/Desktop/code/Rails/AddingColumn/bin/rails:8)
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "rooms" ADD "image_url" varchar[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150510183516"]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPricePerNightToRoom (20180530224858)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "rooms" ADD "price_per_night" decimal[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180530224858"]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2018-05-30 22:54:02 UTC], ["updated_at", 2018-05-30 22:54:02 UTC]]
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "rooms" ("title", "description", "beds", "guests", "created_at", "updated_at", "image_url") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Studio apt in the heart of Chelsea!"], ["description", "My modern and cozy studio apartment with an open kitchen floor plan has everything you need for a comfortable stay. It is located on a quiet side street steps away from tons of restaurants, bars and transportation. Very convenient!"], ["beds", 1], ["guests", 2], ["created_at", 2018-05-30 22:54:26 UTC], ["updated_at", 2018-05-30 22:54:26 UTC], ["image_url", "https://a0.muscache.com/ic/pictures/71697005/ab9aaf15_original.jpg?interpolation=lanczos-none&size=xx_large&output-format=jpg&output-quality=70"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "rooms" ("title", "description", "beds", "guests", "created_at", "updated_at", "image_url") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Penthouse Studio East 50s Terrace"], ["description", "This is a fully furnished short term studio apartment in an elevator building on the 6th floor in the heart of midtown Manhattan. Close to all major subway lines- E, M & 6, major landmarks & shopping, 5 star hotels, restaurants & bars, lively area, its the perfect location to explore the city."], ["beds", 2], ["guests", 4], ["created_at", 2018-05-30 22:54:26 UTC], ["updated_at", 2018-05-30 22:54:26 UTC], ["image_url", "https://a2.muscache.com/ic/pictures/22904553/d336a559_original.jpg?interpolation=lanczos-none&size=xx_large&output-format=jpg&output-quality=70"]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "rooms" ("title", "description", "beds", "guests", "created_at", "updated_at", "image_url") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Roof Access Room Greenwich Village"], ["description", "Great location Greenwich village, walk to shopping, restaurants, NYU, subway and Washington Square Park. Bedroom with window and closet. Updated kitchen and bath. Hardwood floorst. Rooftop access for smokers. Apartment is a 6 story walkup (no elevator) apartment is on top floor and you must walk up."], ["beds", 1], ["guests", 2], ["created_at", 2018-05-30 22:54:26 UTC], ["updated_at", 2018-05-30 22:54:26 UTC], ["image_url", "https://a1.muscache.com/ic/pictures/65749838/8748c743_original.jpg?interpolation=lanczos-none&size=xx_large&output-format=jpg&output-quality=70"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
