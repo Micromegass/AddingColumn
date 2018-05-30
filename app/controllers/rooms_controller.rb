@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
   end
 
 
-  def update 
+  def edit 
     @room = Room.find(params[:id])
     if @room.update(room_params)
     redirect_to room_path
