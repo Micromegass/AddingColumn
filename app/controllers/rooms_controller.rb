@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
   end
 
 
-  def edit 
+  def update 
     @room = Room.find(params[:id])
     if @room.update(room_params)
     redirect_to rooms_path
@@ -26,7 +26,9 @@ class RoomsController < ApplicationController
     end 
   end 
   
-
+  def edit 
+        @room = Room.find(params[:id])
+  end 
 
   def destroy 
     @room = Room.find(params[:id])
@@ -37,8 +39,8 @@ class RoomsController < ApplicationController
  
 
 
-  protected
+  private
     def room_params
-      params.require(:room).permit(:title, :description, :beds, :guests, :image_url, :price_per_night)
+      params.require(:room).permit(:room, :title, :description, :beds, :guests, :image_url, :price_per_night, :id)
     end
 end
