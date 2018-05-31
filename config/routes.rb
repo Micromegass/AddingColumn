@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :rooms, except: [:show]
+  resources :rooms
 end

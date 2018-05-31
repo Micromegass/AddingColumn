@@ -17,10 +17,10 @@ class RoomsController < ApplicationController
   end
 
 
-  def update 
+  def edit 
     @room = Room.find(params[:id])
     if @room.update(room_params)
-    redirect_to room_path
+    redirect_to rooms_path
     else
     render :edit
     end 
@@ -31,7 +31,7 @@ class RoomsController < ApplicationController
   def destroy 
     @room = Room.find(params[:id])
     @room.destroy 
-    redirect_to room_path
+    redirect_to rooms_path
   end 
 
  
